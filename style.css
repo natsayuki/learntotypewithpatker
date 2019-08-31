@@ -48,6 +48,10 @@
     animation: secondsshowanim 1s ease;
 }
 
+.centerCell{
+  text-align: center;
+}
+
 #app{
   overflow: hidden !important;
 }

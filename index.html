@@ -45,36 +45,82 @@
         </h1>
       </div>
       <div class="fullscreen column" v-if="mode == 'quickplayEnd'">
-        <h1>
-          <span v-if="patkerify">Rezluts</span>
-          <span v-else>Results</span>
-        </h1>
-        <h2>
-          <span v-if="patkerify">Sentances tiped: {{quickplay.sentence}}</span>
-          <span v-else>Sentences typed: {{quickplay.sentences}}</span>
-        </h2>
-        <h2>
-          <span v-if="patkerify">Tyme eelapsd: {{quickplayTotalTime}} secands</span>
-          <span v-else>Time elapsed: {{quickplayTotalTime}} seconds</span>
-        </h2>
-        <h2>
-          <span v-if="patkerify">Avrage sentance tyme: {{quickplayAverageTime}} secands</span>
-          <span v-else>Average sentence time: {{quickplayAverageTime}} seconds</span>
-        </h2>
-        <h2>
-          <span v-if="patkerify">Wirds pir minit: {{quickplayWordsPerMinute}}</span>
-          <span v-else>Words per minute: {{quickplayWordsPerMinute}}</span>
-        </h2>
-        <h2>
-          <span v-if="patkerify">Fastist sentance: {{quickplayFastestSentence.time}} secands:</span>
-          <span v-else>Fastest sentence: {{quickplayFastestSentence.time}} seconds:</span>
-        </h2>
-        <h3>{{quickplayFastestSentence.sentence}}</h3>
-        <h2>
-          <span v-if="patkerify">Slowist sentance: {{quickplaySlowestSentence.time}} secands:</span>
-          <span v-else>Slowest sentence: {{quickplaySlowestSentence.time}} seconds:</span>
-        </h2>
-        <h3>{{quickplaySlowestSentence.sentence}}</h3>
+        <table>
+          <tr>
+            <th colspan="2">
+              <span v-if="patkerify">Rezluts</span>
+              <span v-else>Results</span>
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <span v-if="patkerify">Sentances tiped:</span>
+              <span v-else>Sentences typed:</span>
+            </td>
+            <td>
+              {{quickplay.sentence}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span v-if="patkerify">Tyme eelapsd:</span>
+              <span v-else>Time elapsed:</span>
+            </td>
+            <td>
+              <span v-if="patkerify">{{quickplayTotalTime}} secands</span>
+              <span v-else>{{quickplayTotalTime}} seconds</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span v-if="patkerify">Avrage sentance tyme:</span>
+              <span v-else>Average sentence time:</span>
+            </td>
+            <td>
+              <span v-if="patkerify">{{quickplayAverageTime}} secands</span>
+              <span v-else>{{quickplayAverageTime}} seconds</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span v-if="patkerify">Wirds pir minit:</span>
+              <span v-else>Words per minute:</span>
+            </td>
+            <td>
+              {{quickplayWordsPerMinute}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span v-if="patkerify">Fastist sentance:</span>
+              <span v-else>Fastest sentence:</span>
+            </td>
+            <td>
+              <span v-if="patkerify">{{quickplayFastestSentence.time}} secands</span>
+              <span v-else>{{quickplayFastestSentence.time}} seconds</span>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="centerCell">
+              {{quickplayFastestSentence.sentence}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span v-if="patkerify">Slowist sentance:</span>
+              <span v-else>Slowest sentence:</span>
+            </td>
+            <td>
+              <span v-if="patkerify">{{quickplaySlowestSentence.time}} secands</span>
+              <span v-else>{{quickplaySlowestSentence.time}} seconds</span>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="centerCell">
+              {{quickplaySlowestSentence.sentence}}
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
     <script src="vue/jquery.min.js"></script>

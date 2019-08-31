@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 app.get('/api', (req, res) => {
   // req.query.param;
   if(req.query.type == "sentence"){
-    const pythonProcess = spawn('python',["corpus/makeSentence.py"]);
+    const pythonProcess = spawn('python',["makeSentence.py"]);
     pythonProcess.stdout.on('data', (data) => {
       res.send(data);
     });
