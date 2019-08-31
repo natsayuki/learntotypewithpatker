@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Learn To Type With Patker</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="vue/font-awesome.min.css">
+    <link rel="stylesheet" href="vue/all.css">
+    <link rel="stylesheet" href="vue/font.css">
+    <link rel="stylesheet" href="vue/vue-material.min.css">
+    <link rel="stylesheet" href="vue/default.css">
+  </head>
+  <body>
+    <div id="app" class="fullscreen">
+      <div class="fullscreen column" v-if="mode == 'title'">
+        <div id="patkerSwitchWrapper" class="column">
+          <md-switch v-model="patkerify"></md-switch>
+          <h3 v-if="patkerify">Patkarefy evrithing</h3>
+          <h3 v-else>Patkerify everything</h3>
+        </div>
+        <h1 v-if="patkerify">Laern Too Tipe Woth Patker</h1>
+        <h1 v-else>Learn To Type With Parker</h1>
+        <md-button class="md-raised md-primary" @click="startQuickplay()">
+          <span v-if="patkerify">STRAT</span>
+          <span v-else>START</span>
+        </md-button>
+        <image src="images/Patker.png" class="image" id="titlePatker" />
+      </div>
+      <div class="fullscreen column" v-if="mode == 'quickplay'">
+        <h1 class="title ttopleft">
+          <span v-if="patkerify">Qwickplay</span>
+          <span v-else>Quickplay</span>
+        </h1>
+        <h1 class="seconds" id="seconds">
+          <span v-if="patkerify">{{quickplay.seconds}} secands</span>
+          <span v-else>{{quickplay.seconds}} seconds</span>
+        </h1>
+        <div id="quickplayWrapper">
+          <h1 id="toType" class="gameWords">{{toType}}</h1>
+          <h1 id="haveTyped" class="gameWords">{{haveTyped}}</h1>
+        </div>
+        <h1>
+          <span v-if="patkerify">Sentances: {{quickplay.sentence}} Mistaches: {{mistakes}}</span>
+          <span v-else>Sentences: {{quickplay.sentence}} Mistakes: {{mistakes}}</span>
+        </h1>
+      </div>
+      <div class="fullscreen column" v-if="mode == 'quickplayEnd'">
+        <h1>
+          <span v-if="patkerify">Rezluts</span>
+          <span v-else>Results</span>
+        </h1>
+        <h2>
+          <span v-if="patkerify">Sentances tiped: {{quickplay.sentence}}</span>
+          <span v-else>Sentences typed: {{quickplay.sentences}}</span>
+        </h2>
+        <h2>
+          <span v-if="patkerify">Tyme eelapsd: {{quickplayTotalTime}} secands</span>
+          <span v-else>Time elapsed: {{quickplayTotalTime}} seconds</span>
+        </h2>
+        <h2>
+          <span v-if="patkerify">Avrage sentance tyme: {{quickplayAverageTime}} secands</span>
+          <span v-else>Average sentence time: {{quickplayAverageTime}} seconds</span>
+        </h2>
+        <h2>
+          <span v-if="patkerify">Wirds pir minit: {{quickplayWordsPerMinute}}</span>
+          <span v-else>Words per minute: {{quickplayWordsPerMinute}}</span>
+        </h2>
+        <h2>
+          <span v-if="patkerify">Fastist sentance: {{quickplayFastestSentence.time}} secands:</span>
+          <span v-else>Fastest sentence: {{quickplayFastestSentence.time}} seconds:</span>
+        </h2>
+        <h3>{{quickplayFastestSentence.sentence}}</h3>
+        <h2>
+          <span v-if="patkerify">Slowist sentance: {{quickplaySlowestSentence.time}} secands:</span>
+          <span v-else>Slowest sentence: {{quickplaySlowestSentence.time}} seconds:</span>
+        </h2>
+        <h3>{{quickplaySlowestSentence.sentence}}</h3>
+      </div>
+    </div>
+    <script src="vue/jquery.min.js"></script>
+    <script src="vue/vue.js"></script>
+    <script src="vue/vuemd.min.js"></script>
+    <script src="misspellings/misspellings.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
